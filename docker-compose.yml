@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ../backend
+    container_name: backend
+    volumes:
+      - ../backend:/var/www
+    ports:
+      - "8000:8000"
+    working_dir: /var/www
+    environment:
+      - APP_ENV=local
+      - DB_CONNECTION=sqlite
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: .
+    container_name: frontend
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://backend:8000
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
