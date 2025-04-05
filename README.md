@@ -1,9 +1,13 @@
 # Frontend do Projeto Top 5 Tião Carreiro e Pardinho
 Bem-vindo ao repositório do frontend do projeto "Top 5 Tião Carreiro e Pardinho". Este projeto exibe uma lista das músicas mais tocadas da dupla e permite que usuários sugiram novas músicas através de links do YouTube. Além disso, oferece funcionalidades como registro e login de usuários, autenticação, e operações administrativas para gerenciamento das músicas sugeridas.
 
-## Estrutura do Projeto
-Este projeto é dividido em dois repositórios:
-Frontend: Implementado com ReactJS e Material-UI.
+## Implementado com ReactJS e Material-UI.
+
+
+## Para facilitar o desenvolvimento e a execução, os repositórios devem ser organizados da seguinte forma:
+project-root/
+├── backend/   # Repositório da API (este repositório)
+└── frontend/  # Repositório do frontend
 
 ## Funcionalidades Principais
 Autenticação de Usuários: Permite que usuários se registrem, façam login e logout.
@@ -54,12 +58,7 @@ Isso construirá as imagens e iniciará os contêineres para o frontend e o back
 
 
 
-Comunicação entre Frontend e Backend
-
-Para garantir que o frontend se comunique corretamente com o backend:
-
-O usuário deve clonar os repositórios backend e frontend em uma pasta nomeando eles respectivamente de backend e frontend
-
+## Para garantir que o frontend se comunique corretamente com o backend:
 Execução com NPM: O backend deve estar rodando em http://localhost:8000. Certifique-se de que o backend esteja em execução antes de iniciar o frontend.
 
 Execução com Docker: O Docker Compose configura uma rede interna (app-network) onde os serviços frontend e backend podem se comunicar diretamente. O frontend acessa o backend através do nome do serviço backend definido no docker-compose.yml.
