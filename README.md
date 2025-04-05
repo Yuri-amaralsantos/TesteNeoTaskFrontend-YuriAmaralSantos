@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Frontend do Projeto Top 5 Tião Carreiro e Pardinho
+Bem-vindo ao repositório do frontend do projeto "Top 5 Tião Carreiro e Pardinho". Este projeto exibe uma lista das músicas mais tocadas da dupla e permite que usuários sugiram novas músicas através de links do YouTube. Além disso, oferece funcionalidades como registro e login de usuários, autenticação, e operações administrativas para gerenciamento das músicas sugeridas.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Estrutura do Projeto
+Este projeto é dividido em dois repositórios:
+Frontend: Implementado com ReactJS e Material-UI.
 
-## Available Scripts
+## Funcionalidades Principais
+Autenticação de Usuários: Permite que usuários se registrem, façam login e logout.
 
-In the project directory, you can run:
+Sugestão de Músicas: Usuários autenticados podem sugerir novas músicas através de links do YouTube.
 
-### `npm start`
+Gerenciamento de Sugestões: Administradores podem aprovar ou rejeitar sugestões de músicas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+CRUD de Músicas: Administradores podem adicionar, editar e excluir músicas da lista.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Paginação: Exibe a lista de músicas com paginação, destacando as 5 primeiras e listando as demais com paginação.
 
-### `npm test`
+#Pré-requisitos
+Antes de iniciar, certifique-se de ter instalado em sua máquina:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Node.js (versão 14 ou superior)
 
-### `npm run build`
+Docker (opcional, caso opte por executar via Docker)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Configuração e Execução do Frontend
+Você pode executar o frontend de duas maneiras: diretamente com npm ou utilizando Docker.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Execução com NPM
+Instale as dependências:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install
 
-### `npm run eject`
+Isso define a URL onde o frontend irá acessar a API do backend.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Inicie o servidor de desenvolvimento:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+O aplicativo estará disponível em http://localhost:3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Execução com Docker
+Configure as variáveis de ambiente:
 
-## Learn More
+Isso define a URL interna para comunicação entre os contêineres do frontend e backend.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Crie o arquivo docker-compose.yml:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+No diretório frontend, execute:
 
-### Code Splitting
+docker-compose up --build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Isso construirá as imagens e iniciará os contêineres para o frontend e o backend.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Comunicação entre Frontend e Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Para garantir que o frontend se comunique corretamente com o backend:
 
-### Advanced Configuration
+O usuário deve clonar os repositórios backend e frontend em uma pasta nomeando eles respectivamente de backend e frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Execução com NPM: O backend deve estar rodando em http://localhost:8000. Certifique-se de que o backend esteja em execução antes de iniciar o frontend.
 
-### Deployment
+Execução com Docker: O Docker Compose configura uma rede interna (app-network) onde os serviços frontend e backend podem se comunicar diretamente. O frontend acessa o backend através do nome do serviço backend definido no docker-compose.yml.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Funcionalidades Detalhadas
+Autenticação de Usuários
+Utilizamos o Material-UI para criar os componentes de interface relacionados à autenticação, como formulários de login e registro. Para mais informações sobre como implementar autenticação com Material-UI, consulte este exemplo de autenticação com Material-UI.
 
-### `npm run build` fails to minify
+Paginação
+A lista de músicas é paginada utilizando o componente de paginação do Material-UI. Para implementar a paginação no seu projeto, você pode seguir este guia de paginação com Material-UI.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Gerenciamento de Músicas
+Administradores têm acesso a funcionalidades de CRUD (Criar, Ler, Atualizar, Deletar) para gerenciar as músicas sugeridas. Isso inclui a aprovação ou rejeição de sugestões feitas por usuários. Para implementar operações CRUD no Laravel 11, você pode seguir este tutorial de CRUD com Laravel 11.
+
+Considerações Finais
+Variáveis de Ambiente: Certifique-se de que as variáveis de ambiente estão corretamente configuradas para refletir o ambiente em que a aplicação está sendo executada.
+
+
